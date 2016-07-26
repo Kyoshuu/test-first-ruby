@@ -8,11 +8,7 @@ def subtract(n1, n2)
 end
 
 def sum(array)
-	sum = 0
-	array.each do |n|
-		sum += n
-	end
-	sum
+	return (array==[] ? 0 : array.shift + sum(array))
 end
 
 def multiply(*nums)
@@ -24,11 +20,10 @@ def multiply(*nums)
 end
 
 def power(n1, n2)
-	pow = 1
-	n2.times do
-		pow *= n1
+	if n2 == 0
+		return 1
 	end
-	pow
+	return n1 * power(n1, n2-1)
 end
 
 def factorial(num)
